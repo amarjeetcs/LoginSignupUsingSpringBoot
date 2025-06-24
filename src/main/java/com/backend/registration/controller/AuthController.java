@@ -54,16 +54,6 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-//    @PostMapping("/signup")
-//    public String signup(@RequestBody @Valid UserDTO userDTO) {
-//        boolean isRegistered = userService.register(userDTO);
-//        if (isRegistered) {
-//            return "Signup successful";
-//        } else {
-//            return "User already exists with this email";
-//        }
-//    }
-///with customize response to user on ui
     @PostMapping("/signup")
     public ResponseEntity<Map<String, String>> signup(@RequestBody @Valid UserDTO userDTO) {
         Map<String, String> response = new HashMap<>();
