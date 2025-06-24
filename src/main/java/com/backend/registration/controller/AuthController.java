@@ -76,4 +76,19 @@ public class AuthController {
             return "Invalid credentials";
         }
     }
+
+    @PostMapping("/forgot-username")
+    public String forgotUsername(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        User user = userService.findByEmail(email);
+        return (user != null) ? "Your username is: " + user.getFullName() : "No user found with this email.";
+    }
+
+    @PostMapping("/forgot-password")
+    public String forgotPassword(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        User user = userService.findByEmail(email);
+        return (user != null) ? "A password reset link has been sent to your email." : "Email not found.";
+    }
+
 }
