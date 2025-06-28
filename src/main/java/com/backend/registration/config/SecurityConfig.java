@@ -19,12 +19,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for Postman testing
+                .csrf(csrf -> csrf.disable()) // 🔒 Disable CSRF for easier testing (esp. via Postman)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // ✅ allow public access
-                        .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/api/student/signup",     // ✅ Allow student signup
+                                "/api/auth/**"             // ✅ Allow any other public auth APIs
+                        ).permitAll()
+                        .anyRequest().authenticated() // 🔐 All other endpoints require authentication
                 )
-                .httpBasic(withDefaults()); // basic auth enabled
+                .httpBasic(withDefaults()); // Enable basic auth
 
         return http.build();
     }
