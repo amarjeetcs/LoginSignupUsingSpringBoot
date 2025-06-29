@@ -1,9 +1,8 @@
 package com.backend.registration.repository;
 
-import com.backend.registration.entity.User;
+import com.backend.registration.entity.Instructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface InstructorRepository extends JpaRepository<Instructor, Long> {
     boolean existsByEmail(String email);
-    User findByEmail(String email);
 }
