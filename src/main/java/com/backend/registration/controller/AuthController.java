@@ -1,35 +1,3 @@
-//package com.backend.registration.controller;
-//
-//import com.backend.registration.entity.User;
-//import com.backend.registration.service.UserService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//@RestController
-//@RequestMapping("/api/auth")
-//@CrossOrigin(origins = "*") // Allow frontend to call this
-//public class AuthController {
-//
-//    @Autowired
-//    private UserService userService;
-//
-//    @PostMapping("/signup")
-//    public User signup(@RequestBody User user) {
-//        return userService.register(user);
-//    }
-//
-//    @PostMapping("/login")
-//    public String login(@RequestBody User loginUser) {
-//        User user = userService.login(loginUser.getEmail(), loginUser.getPassword());
-//        if (user != null) {
-//            return "Login successful";
-//        } else {
-//            return "Invalid credentials";
-//        }
-//    }
-//}
-//below with dto
-
 package com.backend.registration.controller;
 
 import com.backend.registration.dto.UserDTO;
