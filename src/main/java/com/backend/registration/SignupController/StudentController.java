@@ -1,7 +1,8 @@
-package com.backend.registration.controller;
+package com.backend.registration.SignupController;
 
-import com.backend.registration.dto.AdminDTO;
-import com.backend.registration.service.AdminService;
+import com.backend.registration.dto.StudentDTO;
+import com.backend.registration.service.StudentService;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +13,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/admin")
-@CrossOrigin(origins = "*")
-public class AdminController {
+@RequestMapping("/api/student")
+//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://127.0.0.1:5500", allowCredentials = "true")
+public class StudentController {
 
     @Autowired
-    private AdminService adminService;
+    private StudentService studentService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Map<String, String>> signup(@RequestBody @Valid AdminDTO adminDTO) {
+    public ResponseEntity<Map<String, String>> signup(@RequestBody @Valid StudentDTO studentDTO) {
         Map<String, String> response = new HashMap<>();
 
-        boolean registered = adminService.register(adminDTO);
+        boolean registered = studentService.register(studentDTO);
         if (registered) {
             response.put("message", "Signup successful");
             return ResponseEntity.ok(response);

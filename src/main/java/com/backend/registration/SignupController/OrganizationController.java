@@ -1,4 +1,4 @@
-package com.backend.registration.controller;
+package com.backend.registration.SignupController;
 
 import com.backend.registration.dto.OrganizationDTO;
 import com.backend.registration.service.OrganizationService;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/organization")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://127.0.0.1:5500", allowCredentials = "true")
 public class OrganizationController {
 
     @Autowired
